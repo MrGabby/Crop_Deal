@@ -26,7 +26,7 @@ namespace Crop_Deal.Controllers
             context.Users.Add(b);
             await context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetUser), new { id = b.id }, User);
+            return CreatedAtAction(nameof(GetUser), new { id = b.Id }, User);
         }
 
         [HttpGet("{id}")]
