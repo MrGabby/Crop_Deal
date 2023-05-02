@@ -6,7 +6,7 @@ namespace Crop_Deal.Models
     {
 
         [Key]
-        public int Invoice_id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         //-----------------------------------------------------------------

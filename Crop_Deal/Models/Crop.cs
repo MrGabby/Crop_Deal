@@ -6,7 +6,7 @@ namespace Crop_Deal.Models
     {
         [Key]
         [Required]
-        public int Crop_id {get; set;}
+        public int Id {get; set;}
         [Required]
         public string? Crop_name { get; set;}
         [Required]
