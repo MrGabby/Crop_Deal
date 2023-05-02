@@ -4,6 +4,7 @@ using Crop_Deal.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Crop_Deal.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    partial class ApiDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230502055027_data_Annotation_removed")]
+    partial class data_Annotation_removed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -122,11 +125,11 @@ namespace Crop_Deal.Migrations
 
             modelBuilder.Entity("Crop_Deal.Models.User", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("User_id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("User_id"));
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
@@ -164,7 +167,7 @@ namespace Crop_Deal.Migrations
                     b.Property<string>("User_roles")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("id");
+                    b.HasKey("User_id");
 
                     b.ToTable("Users");
                 });

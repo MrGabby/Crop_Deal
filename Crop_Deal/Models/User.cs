@@ -5,7 +5,7 @@ namespace Crop_Deal.Models
     public class User
     {
         [Key]
-        public int User_id { get; set; }
+        public int id { get; set; }
 
         //-----------------------------------------------------------------
       /*  [Required(ErrorMessage = "Please enter your name"), MinLength(3), MaxLength(50)]*/

@@ -18,32 +18,41 @@ namespace Crop_Deal.Controllers
             this.context = context;
         }
 
+ 
 
         [HttpPost]
-        public async Task<ActionResult<User>> PostBrand(User b)
+        public async Task<ActionResult<User>> PostUser(User b)
         {
             context.Users.Add(b);
             await context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetBrand), new { id = b.User_id }, User);
+            return CreatedAtAction(nameof(GetUser), new { id = b.id }, User);
         }
 
-        [HttpGet]
-        public async Task<ActionResult<User>> GetBrand(int User_id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<User>> GetUser(int id)
         {
             if (context.Users == null)
             {
                 return NotFound();
             }
-            var b = await context.Users.FindAsync(User_id);
+            var b = await context.Users.FindAsync(id);
             if (b == null)
             {
                 return NotFound();
             }
             return b;
         }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
+        {
+            if (context.Users == null)
+            {
+                return NotFound();
+            }
+            return await context.Users.ToListAsync();
 
-
+        }
         /*     
          *     
          *     {
